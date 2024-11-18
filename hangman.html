@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wordToFind">
+        <h1 style="letter-spacing: 6px;">{{.WordToFind}}</h1>
+    </div>
+    <div>
+        {{if .Endd}}
+            <h2 style="display: flex; justify-content: center;">{{.Phrase}}</h2>
+        {{else}}
+        <h2 style="display: flex; justify-content: center;">Il vous reste {{.Try}} essais</h2>
+        {{end}}
+        <div class="inpdiv">
+            <form action="/hangman" method="post">
+                <input type="text" placeholder="Saisir une lettre" name="lettre">
+                {{if .Endd}}
+                <input type="submit" value="Confirmer" disabled=/>
+                {{else}}
+                <input type="submit" value="Confirmer" />
+                {{end}}
+          </form>
+          <form action="/reset" method="post">
+            <input type="submit" value="Recommencer">
+          </form>
+    </div>      
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .wordToFind h1 {
+            font-size: 2.5rem;
+            color: #4a4e69;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #22223b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .inpdiv {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #4a4e69;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #9a8c98;
+        }
+
+        input[type="submit"] {
+            padding: 10px 15px;
+            font-size: 1rem;
+            color: white;
+            background-color: #4a4e69;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9a8c98;
+        }
+
+        input[type="submit"]:disabled {
+            background-color: #c9ada7;
+            cursor: not-allowed;
+        }
+
+        .wordToFind, .inpdiv, h2 {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .wordToFind h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+
+            input[type="text"], input[type="submit"] {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</body>
+</html>
