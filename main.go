@@ -32,5 +32,6 @@ func main() {
 	hangmanModule.InitGame()
 	http.HandleFunc("/", hangHandler)
 	http.HandleFunc("/reset", restart)
+	http.Handle("/rscr/", http.StripPrefix("/rscr/", http.FileServer(http.Dir("./rscr"))))
 	http.ListenAndServe(":80", nil)
 }

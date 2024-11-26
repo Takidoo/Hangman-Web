@@ -62,11 +62,11 @@ func InitGame() {
 }
 
 func CheckLettre(lettre string) {
-	Le += lettre + " "
 	if Word == lettre {
 		Fin = true
 		EndSentence = "Bravo, vous avez gagné !"
 	} else {
+		Le += lettre + " "
 		if strings.Contains(Word, lettre) {
 			for i, l := range Word {
 				if lettre == string(l) {
