@@ -15,9 +15,10 @@
             <h2 style="display: flex; justify-content: center;">{{.Phrase}}</h2>
         {{else}}
         <h2 style="display: flex; justify-content: center;">Il vous reste {{.Try}} essais</h2>
+        <h2 style="display: flex; justify-content: center;">Vous avez essayé les lettres : {{.LettreEssayees}}</h2>
         {{end}}
         <div class="inpdiv">
-            <form action="/hangman" method="post">
+            <form action="/" method="post">
                 <input type="text" placeholder="Saisir une lettre" name="lettre">
                 {{if .Endd}}
                 <input type="submit" value="Confirmer" disabled=/>

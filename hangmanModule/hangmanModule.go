@@ -10,10 +10,11 @@ import (
 )
 
 type PageData struct {
-	WordToFind string
-	Try        int
-	Endd       bool
-	Phrase     string
+	WordToFind     string
+	Try            int
+	Endd           bool
+	Phrase         string
+	LettreEssayees string
 }
 
 var Word string
@@ -23,6 +24,7 @@ var HangData PageData
 var Essais int
 var Fin bool
 var EndSentence string
+var Le string
 
 func InitWordList(file string) string {
 	var l []string
@@ -48,6 +50,7 @@ func InitWordList(file string) string {
 
 func InitGame() {
 	fmt.Printf("\x1bc")
+	Le = ""
 	Word = InitWordList(os.Args[1])
 	Essais = 10
 	Fin = false
@@ -59,6 +62,7 @@ func InitGame() {
 }
 
 func CheckLettre(lettre string) {
+	Le += lettre + " "
 	if Word == lettre {
 		Fin = true
 		EndSentence = "Bravo, vous avez gagné !"

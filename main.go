@@ -12,10 +12,11 @@ func hangHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	tmpl, _ := template.ParseFiles("hangman.html")
 	hangmanModule.HangData = hangmanModule.PageData{
-		WordToFind: string(hangmanModule.Rcw),
-		Try:        hangmanModule.Essais,
-		Endd:       hangmanModule.Fin,
-		Phrase:     hangmanModule.EndSentence,
+		WordToFind:     string(hangmanModule.Rcw),
+		Try:            hangmanModule.Essais,
+		Endd:           hangmanModule.Fin,
+		Phrase:         hangmanModule.EndSentence,
+		LettreEssayees: hangmanModule.Le,
 	}
 	tmpl.Execute(w, hangmanModule.HangData)
 }
