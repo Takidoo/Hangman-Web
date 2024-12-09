@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+// John Imposteur
+
 func hangHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		hangmanModule.CheckLettre(r.FormValue("lettre"))
