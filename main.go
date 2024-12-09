@@ -16,7 +16,7 @@ func hangHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		hangmanModule.CheckLettre(r.FormValue("lettre"))
 	}
-	tmpl, _ := template.ParseFiles("hangman.html")
+	tmpl, _ := template.ParseFiles("templates/hangman.html")
 	hangmanModule.HangData = hangmanModule.PageData{
 		WordToFind:     string(hangmanModule.Rcw),
 		Try:            hangmanModule.Essais,
@@ -28,7 +28,7 @@ func hangHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func restart(w http.ResponseWriter, r *http.Request) {
-	tmpl, _ := template.ParseFiles("reset.html")
+	tmpl, _ := template.ParseFiles("templates/reset.html")
 	hangmanModule.InitGame()
 	tmpl.Execute(w, hangmanModule.HangData)
 

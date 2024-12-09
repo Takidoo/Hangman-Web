@@ -17,6 +17,11 @@ type PageData struct {
 	LettreEssayees string
 }
 
+type Score struct {
+	Username string `json:"username"`
+	Score    int    `json:"score"`
+}
+
 var Word string
 var CurrentWord string
 var Rcw []rune

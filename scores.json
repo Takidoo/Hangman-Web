@@ -1,8 +1,22 @@
-{
-    "scores": [
-      { "name": "Alice", "score": 150 },
-      { "name": "Bob", "score": 120 },
-      { "name": "Charlie", "score": 180 }
-    ]
+[
+  {
+    "username": "Takido",
+    "score": 1
+  },
+  {
+    "username": "Takido",
+    "score": 1
+  },
+  {
+    "username": "Joueur4",
+    "score": 110
+  },
+  {
+    "username": "Joueur4",
+    "score": 110
+  },
+  {
+    "username": "Joueur4",
+    "score": 110
   }
-  
+]
