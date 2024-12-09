@@ -8,7 +8,7 @@ import (
 
 // John Imposteur
 func acc(w http.ResponseWriter, r *http.Request) {
-	tmps, _ := template.ParseFiles("startup.html")
+	tmps, _ := template.ParseFiles("templates/startup.html")
 	tmps.Execute(w, hangmanModule.HangData)
 }
 
