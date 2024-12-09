@@ -7,6 +7,10 @@ import (
 )
 
 // John Imposteur
+func acc(w http.ResponseWriter, r *http.Request) {
+	tmps, _ := template.ParseFiles("startup.html")
+	tmps.Execute(w, hangmanModule.HangData)
+}
 
 func hangHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
@@ -32,6 +36,7 @@ func restart(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	hangmanModule.InitGame()
+	http.HandleFunc("/startup", acc)
 	http.HandleFunc("/", hangHandler)
 	http.HandleFunc("/reset", restart)
 	http.Handle("/rscr/", http.StripPrefix("/rscr/", http.FileServer(http.Dir("./rscr"))))
