@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victoire - Jeu du Pendu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #d4edda;
+            color: #155724;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .message {
+            text-align: center;
+        }
+
+        .message h1 {
+            font-size: 2.5rem;
+            color: #155724;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease;
+        }
+
+        .message p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            animation: fadeIn 2s ease;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: white;
+            background-color: #155724;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #218838;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .message h1 {
+                font-size: 2rem;
+            }
+
+            .message p {
+                font-size: 1rem;
+            }
+
+            .button-container a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Bravo ! Vous avez gagné !</h1>
+        <p>Félicitations pour avoir trouvé le mot !</p>
+    </div>
+    <div class="button-container">
+        <a href="index.html">Rejouer</a>
+        <a href="scoreboard.html">Voir le classement</a>
+    </div>
+</body>
+</html>

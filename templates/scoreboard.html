@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard - Jeu du Pendu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            color: #4a4e69;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease;
+        }
+
+        .title p {
+            font-size: 1.2rem;
+            color: #22223b;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .scoreboard {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            animation: fadeIn 2s ease;
+        }
+
+        .scoreboard th, .scoreboard td {
+            border: 2px solid #4a4e69;
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .scoreboard th {
+            background-color: #4a4e69;
+            color: white;
+        }
+
+        .scoreboard tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .scoreboard tr:nth-child(odd) {
+            background-color: #e9ecef;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            animation: fadeIn 2.5s ease;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: white;
+            background-color: #4a4e69;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #9a8c98;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .title h1 {
+                font-size: 2rem;
+            }
+
+            .title p {
+                font-size: 1rem;
+            }
+
+            .scoreboard th, .scoreboard td {
+                font-size: 0.9rem;
+            }
+
+            .button-container a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>Tableau des scores</h1>
+        <p>Voici les meilleurs joueurs du jeu du pendu !</p>
+    </div>
+    <table class="scoreboard">
+        <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Pseudonyme</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Joueur1</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Joueur2</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Joueur3</td>
+                <td>100</td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <div class="button-container">
+        <a href="hangmanweb.html">Rejouer</a>
+        <a href="startup.html">Accueil</a>
+    </div>
+</body>
+</html>
