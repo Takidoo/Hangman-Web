@@ -1,11 +1,11 @@
 
-const jsonFile = 'scores.json';
+const jsonFile = 'rscr/scores.json';
 
 
 const scoreboard = document.getElementById('scoreboard');
 
 
-fetch('scores.json')
+fetch('rscr/scores.json')
   .then(response => {
     if (!response.ok) {
       console.error('Erreur de chargement du fichier JSON :', response.statusText);

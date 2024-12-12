@@ -21,7 +21,7 @@
         <h2 style="display: flex; justify-content: center;">Vous avez essayé les lettres : {{.LettreEssayees}}</h2>
         {{end}}
         <div class="inpdiv">
-            <form action="/" method="post">
+            <form action="/hangman" method="post">
                 <input type="text" placeholder="Saisir une lettre" name="lettre" maxlength="1" autofocus>
                 {{if .Endd}}
                 <input type="submit" value="Confirmer" disabled=/>

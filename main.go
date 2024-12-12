@@ -12,6 +12,11 @@ func acc(w http.ResponseWriter, r *http.Request) {
 	tmps.Execute(w, hangmanModule.HangData)
 }
 
+func scoreboardHandle(w http.ResponseWriter, r *http.Request) {
+	tmpl, _ := template.ParseFiles("templates/scoreboard.html")
+	tmpl.Execute(w, hangmanModule.HangData)
+}
+
 func hangHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
 		hangmanModule.CheckLettre(r.FormValue("lettre"))
@@ -36,8 +41,9 @@ func restart(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	hangmanModule.InitGame()
-	http.HandleFunc("/startup", acc)
-	http.HandleFunc("/", hangHandler)
+	http.HandleFunc("/scoreboard", scoreboardHandle)
+	http.HandleFunc("/hangman", hangHandler)
+	http.HandleFunc("/", acc)
 	http.HandleFunc("/reset", restart)
 	http.Handle("/rscr/", http.StripPrefix("/rscr/", http.FileServer(http.Dir("./rscr"))))
 	http.ListenAndServe(":80", nil)
